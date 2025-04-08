@@ -36,3 +36,8 @@ jobs:
         platforms: ${{ matrix.platform }}
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/downward_api:latest
+        provenance: false  # provenance 관련 오류 피하기 위해 일단 false
+        no-cache: true     # 캐시 문제 방지 (선택)
+        outputs: type=registry
+        sbom: false         # SBOM 관련 빌드 오류가 있을 경우 비활성화
+
